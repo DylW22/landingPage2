@@ -1,0 +1,10 @@
+.postsContainer {
+    text-align: center;
+}
+.postsGrid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-template-rows: auto; /* Row height adjusts to content */
+    gap: 10px; /* Space between grid items */
+}

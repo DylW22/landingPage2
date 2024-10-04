@@ -1,0 +1,13 @@
+
+.header {
+    background-color: #7f7f7f;    
+
+    display: flex;
+    justify-content: space-between;
+  
+    
+}
+
+.header > div {
+    margin: 20px;
+}
