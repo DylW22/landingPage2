@@ -11,7 +11,6 @@ export const getStaticProps: GetStaticProps<{
 
     if (!res.ok) {
       return {
-        props: { plans: [] },
         notFound: true,
       };
     }

@@ -40,18 +40,12 @@ export const getServerSideProps: GetServerSideProps = async (
   );
 
   if (!res.ok) {
-    console.log("Response is invalid");
-    // throw new Error(`${res.ok}`);
     return {
-      props: { post: [] },
       notFound: true,
     };
   }
 
   const post = await res.json();
-  console.log("postData: ", post);
-
-  // If post not found, return a 404
   if (!post) {
     return {
       notFound: true,

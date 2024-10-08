@@ -11,8 +11,6 @@ export const getStaticProps: GetStaticProps<{
   plans: PhonePlanType[];
   testimonials: Testimonial[];
 }> = async () => {
-  //Fetch PhonePlans
-
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
     if (!res.ok) {
@@ -34,7 +32,6 @@ export const getStaticProps: GetStaticProps<{
       revalidate: 60,
     };
   } catch (error) {
-    console.error(error);
     return {
       notFound: true,
     };

@@ -37,8 +37,6 @@ const handler: NextApiHandler<BlogPost | { message: string }> = async (
       if (!post) {
         return res.status(404).json({ message: "Post not found" });
       }
-      console.log("post: ", post);
-      //const blogPost = post as BlogPost;
       res.status(200).json(post);
     } catch (error) {
       console.error(error);

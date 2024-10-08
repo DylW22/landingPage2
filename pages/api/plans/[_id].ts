@@ -23,18 +23,14 @@ const handler: NextApiHandler = async (req, res) => {
       const plan: PhonePlanType | null = await collection.findOne({
         _id: new ObjectId(_id),
       });
-      console.log("Fetched plan: ");
       if (!plan) {
         return res.status(404).json({ message: "Post not found" });
       }
       res.status(200).json(plan);
     } catch (error) {
-      console.log("error: ", error);
+      console.error(error);
       res.status(500).json({ message: "Internal server error" });
     }
-    // finally {
-    //   await client.close();
-    // }
   } else {
     res.status(405).json({ message: "Method not allowed" });
   }

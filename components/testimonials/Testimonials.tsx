@@ -3,7 +3,6 @@ import Testimonial from "./Testimonial";
 import { TestimonialsProps } from "../../types/types";
 
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
-  // console.log("testimonials: ", testimonials);
   return (
     <div className={styles.wrapper}>
       {testimonials.map((testimonial) => (

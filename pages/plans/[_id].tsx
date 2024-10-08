@@ -34,7 +34,6 @@ export const getServerSideProps: GetServerSideProps = async (
   );
   if (!res.ok) {
     return {
-      props: { plan: [] },
       notFound: true,
     };
   }

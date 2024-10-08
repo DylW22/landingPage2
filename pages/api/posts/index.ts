@@ -26,7 +26,7 @@ const handler: NextApiHandler = async (req, res) => {
 
       res.status(200).json(allData);
     } catch (error) {
-      console.log("error:", error);
+      console.error(error);
       res.status(500).json({ message: "Something went wrong!" });
     } finally {
       await client.close();
