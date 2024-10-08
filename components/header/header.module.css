@@ -1,13 +1,72 @@
 
 .header {
-    background-color: #7f7f7f;    
-
+     /* background-color: #518ddb;   */
     display: flex;
     justify-content: space-between;
-  
+    margin: 0;
+    padding: 0;
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+    z-index: 10;
+    position: sticky;
+    top:0;
+ 
     
+
 }
 
+.iconContainer {
+    position: relative; /* Required for layout="fill" to work */
+    height: 100%;
+    width: max(50%, 700px);
+    overflow: hidden; /* Ensures any overflow is hidden */
+    display: flex;
+    /* text-align: left; */
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+  
+}
+.icon {
+    width: 50px;
+    height: 100%;
+    padding: 5px;
+  
+
+}
+.brandName {
+    width: 70%;
+    height: 100%;
+ 
+}
+
+.burger {
+
+    width: 50px;
+    padding: 5px;
+    height: auto;
+    cursor: pointer;
+}
+.burger:hover {
+    background-color: lightblue;
+    border-radius: 5px;
+}
 .header > div {
-    margin: 20px;
+    margin: 5px;
+}
+
+
+@media (min-width: 600px) {
+    .iconContainer {
+        width: 50%;
+    }
+}
+
+
+
+@media (min-width: 1440px){
+    .iconContainer {
+        width: 15%;
+    }
 }

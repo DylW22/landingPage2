@@ -1,0 +1,110 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh; 
+    height: 100%;
+  }
+
+  
+  .menu {
+    flex: 1;
+    display: flex; 
+    opacity: 0; 
+    z-index: 1;
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in; 
+}
+.content {
+  width: 100%;
+  // height: 100%;
+
+  //  height: calc(100vh - 80px); //TBD
+  z-index: 1;
+  flex: 1; 
+  display: flex;
+   
+
+}
+
+
+.fadein {
+    opacity: 1; 
+    visibility: visible; 
+    pointer-events: auto; 
+}
+  .hidden {
+    opacity: 0;
+    visibility: hidden; 
+    pointer-events: none; 
+    display: none; 
+    overflow: hidden;
+  }
+  
+  .visible {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+    overflow: auto;
+  }
+
+  $particleSize: 10vmin;
+  $animationDuration: 20s;
+  $amount: 20;
+  
+  .particleContainer {
+    position: fixed;
+    overflow: hidden;
+    top: 0px;
+    // height: 2000px;
+     height: 100%;  //Where does the 80px come from? The height of the header?
+    width: 100%;
+     
+   
+  
+    
+  }
+
+  .particle {
+    width: $particleSize;
+    height: $particleSize;
+    border-radius: $particleSize;
+    backface-visibility: hidden;
+    position: absolute;
+    animation-name: move;
+    animation-duration: $animationDuration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+   
+    z-index: 0;
+      $colors: (
+      #583C87,
+      #E45A84,
+      #FFACAC
+    );
+    @for $i from 1 through $amount {
+      &:nth-child(#{$i}){
+        color: nth($colors, random(length($colors)));
+        top: random(100) * 1%;
+        left: random(100) * 1%;
+     //   animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
+      //  animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+        transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
+        //$blurRadius: (random() + 0.5) * $particleSize * 0.5;
+        $x: if(random() > 0.5, -1 ,1);
+        box-shadow: ($particleSize * 2 *$x) 0;// $blurRadius currentColor;
+        }
+    }
+  }
+  
+  @keyframes move {
+    100% {
+      transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+  }
+
+
+
+  

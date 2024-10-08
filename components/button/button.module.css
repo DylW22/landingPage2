@@ -1,0 +1,21 @@
+.wrapper {
+    background-color: rgb(70, 143, 252);
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+.wrapper:active {
+    
+}
+.threeD {
+    box-shadow: 0 5px 0 #006599;
+    transition: transform 100ms linear, box-shadow 100ms linear;
+}
+.threeD:active {
+    box-shadow: 0 2px 0 #006599;
+    transform: translateY(3px);
+}

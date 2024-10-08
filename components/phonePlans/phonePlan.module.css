@@ -1,0 +1,129 @@
+.wrapper {
+    background-color: lightgray;
+    width: 100%;
+    
+    position: relative;
+    z-index: -1;
+    border-radius: 10px;
+    min-height: 300px;
+    padding: 20px;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+
+}
+
+.title {
+   
+    font-size: 36px;
+    margin: 20px 10px;
+}
+
+.primaryContent {
+    display: flex;
+
+    width: 100%;
+   
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.primaryContent > div {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 32px;
+}
+.primaryContent .dataLimit {
+    color: blue;
+}
+.verticalLine {
+    width: 2px;
+    margin: 0 10px;
+    background-color: darkgray;
+}
+
+.line {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid darkgray;
+    margin: 1em 0;
+    padding: 0;
+}
+.price {
+    position: relative;
+}
+.price span {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+
+.description {
+    text-align: center;
+}
+
+.expiry {
+    font-size: 18px;
+    text-align: center;
+}
+
+.expiry > span {
+    font-weight: bold;
+}
+
+.linkButton {
+    margin: 0 auto;
+    border: 2px solid white;
+    position: relative;
+    z-index: 10000;
+    display: block;
+    text-align: center;
+    width: 60%;   
+    max-width: 150px;
+}
+
+
+.learnMoreLink {
+    text-decoration: none;
+    
+}
+
+.learnMoreLink:hover button {
+    color:red;
+}
+
+@media (min-width: 400px) {
+    .primaryContent > div {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 475px) {
+    .primaryContent > div {
+        font-size: 40px;
+    }
+}
+
+
+
+@media (min-width: 600px) {
+    .wrapper {      
+        flex: 1;
+    } 
+    .title {
+        margin: 20px 60px;
+    }
+
+    .primaryContent {
+        flex-direction: row;
+        gap: 0px;
+        align-items: unset;
+        font-size: 48px;
+    }
+}
+
+@media (min-width: 1028px) {
+    .primaryContent {
+        gap: 10px;
+    }
+}

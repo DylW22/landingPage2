@@ -3,11 +3,13 @@
     border-radius: 10px ;
     cursor: pointer;
     height: 300px;
-    width: 600px;
+    width: 500px; /*down from 600px*/
     position: relative;
     perspective: 2000;
     border: 2px solid darkgray;
+   
 }
+
 
 .card {
 

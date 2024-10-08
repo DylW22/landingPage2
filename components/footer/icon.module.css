@@ -1,0 +1,15 @@
+.iconContainer {
+    margin: 0;
+    padding: 0;
+}
+.iconImage {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    font-weight: bold;
+}

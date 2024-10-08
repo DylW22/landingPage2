@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "targetUrl": "http://www.facebook.com",
+    "imageSrc": "/icons/facebook.svg",
+    "alt": "Facebook icon",
+    "description": "Facebook"
+  },
+  {
+    "id": 1,
+    "targetUrl": "http://www.instagram.com",
+    "imageSrc": "/icons/instagram.svg",
+    "alt": "Instagram icon",
+    "description": "Instagram"
+  },
+  {
+    "id": 2,
+    "targetUrl": "http://www.twitter.com",
+    "imageSrc": "/icons/twitter.svg",
+    "alt": "Twitter icon",
+    "description": "Twitter"
+  },
+  {
+    "id": 3,
+    "targetUrl": "http://www.youtube.com",
+    "imageSrc": "/icons/youtube.svg",
+    "alt": "Youtube icon",
+    "description": "Youtube"
+  }
+]

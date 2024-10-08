@@ -18,10 +18,28 @@ body {
     Helvetica Neue,
     sans-serif;
     position: relative;
+    min-height: 100vh;
+    /* background-color: #518ddb; */
+    scroll-behavior: smooth;
+    /* height: 100vh; */
+    animation: changeBackground 32s ease-in forwards;
 }
 
 * {
   box-sizing: border-box;
+}
+
+@keyframes changeBackground {
+   0% {
+    background:radial-gradient(circle 1000px at 50% 50%, #518ddb, #518ddb);
+   }
+   50% {
+    background:radial-gradient(circle 1000px at 50% 50%, rgb(255,0,0,0.3), #518ddb);
+    /* background: radial-gradient(circle 50% at center,white, #518ddb, #518ddb) */
+   }
+   100% {
+    background:radial-gradient(circle 1000px at 50% 50%, #518ddb, #518ddb);
+   }
 }
 
 

@@ -1,0 +1,36 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0px; 
+    width: 240px; 
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  .gridContainer a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .gridItem {
+     display: flex;
+     align-items: center;
+    font-size: 18px;
+    margin: 0 5px; 
+    padding: 0; 
+    box-sizing: border-box; 
+    width: 120px;
+    height: 50px;
+  }
+  
+
+  @media (min-width: 768px) {
+        .gridContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+        }
+        .gridItem{
+            padding: 5px;
+        }
+  }

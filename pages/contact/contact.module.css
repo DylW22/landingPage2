@@ -1,6 +1,21 @@
+.formWrapper {
+    display: flex;
+    height: calc(100vh - 70px);
+    width: 100%;
+    flex: 1;
+    margin: auto;
+    padding: 50px;
+}
 
 
-.content {
-    background-color: red;
-   
+@media (min-width: 768px) {
+    .formWrapper{
+        max-width: 90%;;
+    }
+}
+
+@media (min-width: 1024px) {
+    .formWrapper{
+        max-width: 75%;
+    }
 }

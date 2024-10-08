@@ -1,0 +1,48 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0px 40px;
+    padding: 20px;
+    background-color: lightblue;
+    border-radius: 20px;
+    justify-content: center;
+    position: relative;
+}
+
+.form label {
+    margin-left: 5px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form input {
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.form textarea {
+    border-radius: 10px;
+    padding: 10px;
+    overflow: scroll;
+    border: 2px solid white;
+}
+
+.form button {
+    align-self: center;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.popup {
+    position: absolute;
+    z-index: 10000;
+
+}
+
+.errorWrapper {
+    display: block;
+    height: 1rem;
+    margin-bottom: 10px;
+}

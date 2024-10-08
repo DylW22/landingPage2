@@ -1,0 +1,6 @@
+[
+  { "id": 0, "path": "/", "title": "HOME" },
+  { "id": 1, "path": "/about", "title": "ABOUT" },
+  { "id": 2, "path": "/posts", "title": "POSTS" },
+  { "id": 3, "path": "/contact", "title": "CONTACT" }
+]
