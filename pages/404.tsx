@@ -14,6 +14,17 @@ export default function MyComponent() {
         <h2>
           <Link href="/">Back to home.</Link>
         </h2>
+        <div>
+          process.env.NODE_ENV:
+          {JSON.stringify(process.env.NEXT_PUBLIC_NODE_ENV)}
+        </div>
+        <div>
+          process.env.NODE_ENV: {JSON.stringify(process.env.MONGODB_URI)}
+        </div>
+        <div>
+          NEXT_PUBLIC_API_URL:
+          {JSON.stringify(process.env.NEXT_PUBLIC_API_URL)}
+        </div>
       </div>
     </div>
   );

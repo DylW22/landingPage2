@@ -1,11 +1,17 @@
 import { GetServerSideProps } from "next";
 import { BlogPost } from "../../types/types";
+import { useRouter } from "next/router";
 
 interface PostPageProps {
   post: BlogPost;
 }
 
 const PostPage: React.FC<PostPageProps> = ({ post }) => {
+  const router = useRouter();
+  if (!router.isFallback && !post) {
+    return <div>Plans index error</div>;
+  }
+
   return (
     <div>
       <h1>{post.title}</h1>
@@ -29,15 +35,13 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   const { _id } = context.params as { _id: string }; // Get `_id` from the params
 
-  console.log("getServerSideProps: _id", _id);
-  // const res = await fetch(
-  //   `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${_id}`
-  // );
-  const res = await fetch(`/api/posts/${_id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${_id}`
+  );
 
   if (!res.ok) {
     console.log("Response is invalid");
-    throw new Error(`${res.ok}`);
+    // throw new Error(`${res.ok}`);
     return {
       notFound: true,
     };

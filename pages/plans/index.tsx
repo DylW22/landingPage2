@@ -7,8 +7,8 @@ export const getStaticProps: GetStaticProps<{
   plans: PhonePlanType[];
 }> = async () => {
   try {
-    //const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
-    const res = await fetch(`/api/plans`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
+
     if (!res.ok) {
       return {
         notFound: true,
@@ -33,10 +33,10 @@ export const getStaticProps: GetStaticProps<{
 const PhonePlans = ({
   plans,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // const router = useRouter();
-  // if (!router.isFallback && !plans) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  const router = useRouter();
+  if (!router.isFallback && !plans) {
+    return <div>Plans index error</div>;
+  }
   return (
     <div className={styles.plansContainer}>
       <h1>Phone plans</h1>

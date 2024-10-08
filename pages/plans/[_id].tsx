@@ -7,10 +7,10 @@ interface PlanPageProps {
 }
 
 const PlanPage: React.FC<PlanPageProps> = ({ plan }) => {
-  // const router = useRouter();
-  // if (!router.isFallback && !plan) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  const router = useRouter();
+  if (!router.isFallback && !plan) {
+    return <ErrorPage statusCode={404} />;
+  }
 
   return <div>{plan.description}</div>;
 };

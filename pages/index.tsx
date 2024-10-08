@@ -5,6 +5,7 @@ import PhonePlans from "../components/phonePlans/PhonePlans";
 import ContentCarousel from "../components/welcome/ContentCarousel";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { PhonePlanType, Testimonial } from "../types/types";
+import { useRouter } from "next/router";
 
 export const getStaticProps: GetStaticProps<{
   plans: PhonePlanType[];
@@ -44,6 +45,10 @@ export default function Home({
   plans,
   testimonials,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const router = useRouter();
+  if (!router.isFallback && !plans) {
+    return <div>Index.tsx error</div>;
+  }
   return (
     <div className={styles.content}>
       <Head>

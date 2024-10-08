@@ -3,6 +3,7 @@ import Post from "../../components/posts/Post";
 import styles from "./../../styles/posts.module.css";
 import { BlogPost } from "../../types/types";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const getStaticProps: GetStaticProps<{
   posts: BlogPost[];
@@ -34,6 +35,10 @@ export const getStaticProps: GetStaticProps<{
 const HomePage = ({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+  if (!router.isFallback && !posts) {
+    return <div>Posts index error</div>;
+  }
   return (
     <div className={styles.postsContainer}>
       <h1>Blog Posts</h1>
