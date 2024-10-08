@@ -6,9 +6,6 @@ interface PostPageProps {
 }
 
 const PostPage: React.FC<PostPageProps> = ({ post }) => {
-  //const router = useRouter();
-  //const { id } = router.query;
-
   return (
     <div>
       <h1>{post.title}</h1>

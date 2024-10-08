@@ -1,11 +1,17 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import { PhonePlanType } from "../../types/types";
-
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
 interface PlanPageProps {
   plan: PhonePlanType;
 }
 
 const PlanPage: React.FC<PlanPageProps> = ({ plan }) => {
+  // const router = useRouter();
+  // if (!router.isFallback && !plan) {
+  //   return <ErrorPage statusCode={404} />;
+  // }
+
   return <div>{plan.description}</div>;
 };
 
@@ -14,6 +20,7 @@ export default PlanPage;
 interface Params {
   _id?: string;
 }
+
 interface ExtendedContext {
   params?: Params;
 }

@@ -11,20 +11,33 @@ export const getStaticProps: GetStaticProps<{
   testimonials: Testimonial[];
 }> = async () => {
   //Fetch PhonePlans
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
-  const plans: PhonePlanType[] = await res.json();
 
-  const testimonialsRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/testimonials`
-  );
-  const testimonials: Testimonial[] = await testimonialsRes.json();
-  return {
-    props: {
-      plans,
-      testimonials,
-    },
-    revalidate: 60,
-  };
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
+    if (!res.ok) {
+      return {
+        notFound: true,
+      };
+    }
+    const plans: PhonePlanType[] = await res.json();
+
+    const testimonialsRes = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/testimonials`
+    );
+    const testimonials: Testimonial[] = await testimonialsRes.json();
+    return {
+      props: {
+        plans,
+        testimonials,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default function Home({

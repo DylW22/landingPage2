@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
-import styles from "./about.module.css";
+import styles from "./../../styles/about.module.css";
 export default function About() {
   return (
     <div className={styles.wrapper}>

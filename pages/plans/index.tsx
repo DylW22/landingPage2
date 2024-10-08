@@ -1,24 +1,41 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import styles from "./plans.module.css";
+import styles from "./../../styles/plans.module.css";
 import { PhonePlanType } from "../../types/types";
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
 export const getStaticProps: GetStaticProps<{
   plans: PhonePlanType[];
 }> = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
+    if (!res.ok) {
+      return {
+        notFound: true,
+      };
+    }
+    const plans: PhonePlanType[] = await res.json();
 
-  const plans: PhonePlanType[] = await res.json();
-
-  return {
-    props: {
-      plans,
-    },
-    revalidate: 60,
-  };
+    return {
+      props: {
+        plans,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      notFound: true,
+    };
+  }
 };
 
 const PhonePlans = ({
   plans,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // const router = useRouter();
+  // if (!router.isFallback && !plans) {
+  //   return <ErrorPage statusCode={404} />;
+  // }
   return (
     <div className={styles.plansContainer}>
       <h1>Phone plans</h1>

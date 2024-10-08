@@ -1,21 +1,34 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Post from "../../components/posts/Post";
-import styles from "./posts.module.css";
+import styles from "./../../styles/posts.module.css";
 import { BlogPost } from "../../types/types";
 import Link from "next/link";
 
 export const getStaticProps: GetStaticProps<{
   posts: BlogPost[];
 }> = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
-  const posts: BlogPost[] = await res.json();
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
+    if (!res.ok) {
+      return {
+        notFound: true,
+      };
+    }
+    console.log("blog res: ", res);
+    const posts: BlogPost[] = await res.json();
 
-  return {
-    props: {
-      posts,
-    },
-    revalidate: 60,
-  };
+    return {
+      props: {
+        posts,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      notFound: true,
+    };
+  }
 };
 
 const HomePage = ({
