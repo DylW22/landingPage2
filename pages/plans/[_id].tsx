@@ -30,11 +30,11 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   const { _id } = context.params as { _id: string };
   const res = await fetch(
-    `$/{process.env.NEXT_PUBLIC_API_URL}/api/plans/${_id}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/plans/${_id}`
   );
   if (!res.ok) {
-    throw new Error(`${res.ok}`);
     return {
+      props: { plan: [] },
       notFound: true,
     };
   }
