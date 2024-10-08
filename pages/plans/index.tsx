@@ -7,7 +7,8 @@ export const getStaticProps: GetStaticProps<{
   plans: PhonePlanType[];
 }> = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
+    //const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/plans`);
+    const res = await fetch(`/api/plans`);
     if (!res.ok) {
       return {
         notFound: true,

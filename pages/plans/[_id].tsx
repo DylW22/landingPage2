@@ -33,6 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (
     `${process.env.NEXT_PUBLIC_API_URL}/api/plans/${_id}`
   );
   if (!res.ok) {
+    throw new Error(`${res.ok}`);
     return {
       notFound: true,
     };

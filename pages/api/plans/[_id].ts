@@ -4,12 +4,6 @@ import { PhonePlanType } from "../../../types/types";
 //import clientPromise from "../../../lib/mongodb";
 import client from "../../../lib/mongodb";
 
-// if (!process.env.MONGODB_URI) {
-//   throw new Error("MONGODB_URI is not defined in environment variables");
-// }
-
-// const client = new MongoClient(process.env.MONGODB_URI);
-
 const handler: NextApiHandler = async (req, res) => {
   if (req.method === "GET") {
     await client.connect();
